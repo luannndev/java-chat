@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'com.github.johnrengelman.shadow' version '8.1.1'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
 }
 
 group = 'dev.luan.chat'
@@ -18,7 +18,7 @@ repositories {
 }
 
 dependencies {
-    implementation group: 'io.netty', name: 'netty-all', version: '4.1.111.Final'
+    implementation 'io.netty:netty-all:4.1.113.Final'
 }
 
 def targetJavaVersion = 21
@@ -44,4 +44,8 @@ jar {
         attributes["Manifest-Version"] = "1.0"
         attributes["Main-Class"] = "dev.luan.chat.Main"
     }
+}
+
+build {
+    dependsOn shadowJar
 }
